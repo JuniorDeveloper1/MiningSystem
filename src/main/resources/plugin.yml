@@ -1,0 +1,5 @@
+name: Mining System
+version: '${project.version}'
+main: com.juniordeveloper.miningsystem
+api-version: 1.18
+authors: [ JuniorDevelopers ]
