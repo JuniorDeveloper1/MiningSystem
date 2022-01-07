@@ -4,6 +4,7 @@ import com.juniordeveloper.MiningSystem.MineMain;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 public class LevelingManager {
 
@@ -14,11 +15,16 @@ public class LevelingManager {
      *  - Amount of xp needed, can be discussed.
      *  - Maximum Level will be with Config
      */
-    static int level = 0;
-    static int multiplier = 0; // Multiplier has to be changed to config.
-    static int maxmimum = 150; // Set this in a config.
-    static int current_amount = 0;
+    private  static int level = 0;
+     private static int multiplier = 0; // Multiplier has to be changed to config.
+    private  static int maxmimum = 150; // Set this in a config.
+    private static int current_xpamount = 0;
     XpAmount xpAmount = new XpAmount();
+
+    LevelingManager(int level, int current_xpamount) {
+        this.level = level;
+        this.current_xpamount = current_xpamount;
+    }
 
 
     public static void init() {
@@ -28,23 +34,38 @@ public class LevelingManager {
        }
     }
 
-    public static void firstJoin() {setLevel(1);}
-
-    public static void setCurrent_amount(int current_amount) {LevelingManager.current_amount = current_amount;}
-
-    public static int getCurrent_amount() {return current_amount;}
-
-    public static int getMultiplier() {
-        return multiplier;
-    }
+    public static void firstJoin() {LevelingManager.setLevel(1);}
 
     public static int getLevel() {
         return level;
     }
 
-    public static void setLevel(int level) {LevelingManager.level = level;}
+    public static void setLevel(int level) {
+        LevelingManager.level = level;
+    }
+
+    public static int getMultiplier() {
+        return multiplier;
+    }
+
+    public static void setMultiplier(int multiplier) {
+        LevelingManager.multiplier = multiplier;
+    }
 
     public static int getMaxmimum() {
         return maxmimum;
     }
+
+    public static void setMaxmimum(int maxmimum) {
+        LevelingManager.maxmimum = maxmimum;
+    }
+
+    public static int getCurrent_xpamount() {
+        return current_xpamount;
+    }
+
+    public static void setCurrent_xpamount(int current_xpamount) {
+        LevelingManager.current_xpamount = current_xpamount;
+    }
+
 }

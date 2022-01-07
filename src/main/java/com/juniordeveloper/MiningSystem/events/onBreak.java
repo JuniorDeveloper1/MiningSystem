@@ -3,6 +3,8 @@ package com.juniordeveloper.MiningSystem.events;
 
 import com.juniordeveloper.MiningSystem.data.OreRandomizer;
 import com.juniordeveloper.MiningSystem.MineMain;
+import com.juniordeveloper.MiningSystem.data.StaticMaps;
+import com.juniordeveloper.MiningSystem.data.level.LevelingManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -14,9 +16,13 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 public class onBreak implements Listener {
+
+
     /**
      * Voor mij zelf;
      *  <-- Mining System  -->
@@ -29,11 +35,19 @@ public class onBreak implements Listener {
      */
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onBreak(BlockBreakEvent event) {
-        Player p = event.getPlayer();
-        UUID puuid = p.getUniqueId(); //Player UUID
+        double xpPerOre = 0; //TODO: Fetch from config
+
+        Player player = event.getPlayer();
+        UUID playerUniqueId = player.getUniqueId(); //Player UUID
 
         Block block = event.getBlock();
         @NotNull Material blockType = event.getBlock().getType();
+
+
+
+
+
+
 
         Material bedrock = Material.BEDROCK;
 
@@ -56,9 +70,9 @@ public class onBreak implements Listener {
         }
 
 
+        if(blockType.name().contains("ORE")) {
 
-
-
+        }
 
 
 

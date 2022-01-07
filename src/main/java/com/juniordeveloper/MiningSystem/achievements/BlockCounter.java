@@ -4,7 +4,6 @@ import com.juniordeveloper.MiningSystem.data.level.LevelingManager;
 import com.juniordeveloper.MiningSystem.data.level.XpAmount;
 import org.bukkit.entity.Player;
 
-import static com.juniordeveloper.MiningSystem.achievements.Rewards.*;
 
 public class BlockCounter {
     public static void unNamed(Player player) {
@@ -14,8 +13,9 @@ public class BlockCounter {
     }
 
     static void levelCheck() {
-        if(LevelingManager.getCurrent_amount() <= XpAmount.getTotalXPRequirdForLevelUp())
+        if(LevelingManager.getCurrent_xpamount() <= XpAmount.getTotalXPRequirdForLevelUp())
             LevelingManager.setLevel(LevelingManager.getLevel()+1);
+
     }
 
 }
